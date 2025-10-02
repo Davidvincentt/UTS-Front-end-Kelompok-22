@@ -13,6 +13,12 @@ body {
 
 header {
     background-color: #013243; 
+    background-image: linear-gradient(rgba(1, 50, 67, 0.5), rgba(1, 50, 67, 0.5)), 
+        url('image/header2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
     color: white;
     padding-bottom: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -337,4 +343,108 @@ footer {
     .timeline-item::before {
         left: -27px;
     }
+}
+
+/* Styling untuk bagian Komentar */
+#komen-section {
+    background: white;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.comment-form-container {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+}
+
+.comment-form-container label,
+.comment-form-container input,
+.comment-form-container textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.comment-form-container input,
+.comment-form-container textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#submit-button {
+    background-color: #013243;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submit-button:hover {
+    background-color: #004d66;
+}
+
+.comment-list-container {
+    margin-top: 40px;
+}
+
+.comment-item {
+    background-color: #f1f7f9;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #ffb74d;
+    position: relative;
+}
+
+.comment-item strong {
+    color: #013243;
+    font-size: 1.1rem;
+}
+
+.comment-item .comment-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-left: 10px;
+}
+
+.comment-item p {
+    margin-top: 10px;
+    color: #444;
+}
+
+.comment-actions {
+    margin-top: 15px;
+}
+
+.comment-actions button {
+    background: none;
+    border: none;
+    color: #013243;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    margin-right: 15px;
+}
+
+.comment-actions button:hover {
+    color: #ffb74d;
+}
+
+.kuil-description {
+    display: none;
+    margin-top: 15px; 
+}
+
+.kuil-item.active .kuil-description {
+    display: block;
 }
