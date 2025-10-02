@@ -9,7 +9,7 @@ body {
     line-height: 1.7;
     background-color: #fafafa;
     color: #333;
-    font-size: 24px;
+    font-size: 25px; 
 }
 
 header {
@@ -27,12 +27,13 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
+
 .logo {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
@@ -43,7 +44,6 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    margin-left: auto;
 }
 
 nav ul li a {
@@ -71,17 +71,19 @@ nav ul li a.active {
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+    /* Ukuran h1 diperbesar */
+    font-size: 3.2rem; 
     margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    /* Ukuran hero p diperbesar */
+    font-size: 1.3rem; 
     font-weight: 300;
 }
 
-/* PERUBAHAN DI SINI: max-width diubah menjadi 80% */
 main {
+    /* max-width 80% */
     max-width: 80%; 
     margin: 40px auto;
     padding: 0 20px;
@@ -103,7 +105,8 @@ main {
     font-family: 'Playfair Display', serif;
     color: #013243;
     margin-bottom: 25px;
-    font-size: 2.2rem;
+    /* Ukuran h2 diperbesar */
+    font-size: 2.5rem; 
     text-align: center;
 }
 
@@ -125,7 +128,8 @@ h4 {
 }
 
 .intro {
-    font-size: 1.1rem;
+    /* Ukuran intro p diperbesar */
+    font-size: 1.2rem; 
     margin-bottom: 35px;
     color: #555;
     text-align: justify;
@@ -270,10 +274,8 @@ hr {
 .kuil-item {
     background-color: #f8f9fa;
     padding: 30px; 
-    border-radius: 8px;
-    border-left: 5px solid #013243; 
+    border-left: 5px solid #013243;
     transition: transform 0.3s, box-shadow 0.3s;
-    
     width: 100%; 
     height: auto; 
     cursor: pointer;
@@ -283,17 +285,11 @@ hr {
 
 .kuil-item img {
     width: 100%;
+    /* Tinggi gambar diperbesar */
     height: 350px; 
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 20px; 
-}
-
-
-@media (max-width: 768px) {
-    .kuil-item img {
-        height: 200px; 
-    }
+    margin-bottom: 20px;
 }
 
 .kuil-item:hover {
@@ -333,7 +329,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* PENYESUAIAN DI SINI UNTUK LAYAR KECIL */
     main {
         max-width: 95%; 
     }
@@ -362,9 +357,14 @@ footer {
     .timeline-item::before {
         left: -27px;
     }
+    .kuil-item {
+        padding: 15px; 
+    }
+    .kuil-item img {
+        height: 200px;
+    }
 }
 
-/* Styling untuk bagian Komentar */
 #komen-section {
     background: white;
     padding: 40px;

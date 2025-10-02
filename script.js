@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- Data Do's & Don'ts Sesajen (EXISTING) ---
     const sesajenData = [
         {
             type: 'do',
@@ -34,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // --- Data Do's & Don'ts Kuil/Pura (NEW) ---
     const templeData = [
         {
             type: 'do',
@@ -105,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Fungsi universal untuk membuat item grid
     function createGridItem(item) {
         const itemDiv = document.createElement('div');
         itemDiv.classList.add('item', item.type); 
@@ -118,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return itemDiv;
     }
 
-    // Memuat data Sesajen ke kontainer baru
     const sesajenGridContainer = document.querySelector('.sesajen-grid-container');
     if (sesajenGridContainer) {
         sesajenData.forEach(item => {
@@ -127,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Memuat data Kuil/Pura ke kontainer baru
     const kuilGridContainer = document.querySelector('.kuil-grid-container');
     if (kuilGridContainer) {
         templeData.forEach(item => {
@@ -143,7 +138,6 @@ const commentForm = document.getElementById('comment-form');
 const commentsContainer = document.getElementById('comments-container');
 const submitButton = document.getElementById('submit-button');
 
-// Fungsi untuk memuat komentar dari localStorage
 function loadComments() {
     const comments = JSON.parse(localStorage.getItem('bali_comments')) || [];
     commentsContainer.innerHTML = '';
@@ -153,7 +147,6 @@ function loadComments() {
     });
 }
 
-// Fungsi untuk membuat elemen HTML komentar
 function createCommentElement(comment) {
     const commentDiv = document.createElement('div');
     commentDiv.classList.add('comment-item');
@@ -176,7 +169,6 @@ function createCommentElement(comment) {
     return commentDiv;
 }
 
-// Fungsi section komentar
 commentForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -187,7 +179,6 @@ commentForm.addEventListener('submit', (e) => {
     const comments = JSON.parse(localStorage.getItem('bali_comments')) || [];
 
     if (commentId) {
-        // Update
         const index = comments.findIndex(c => c.id === commentId);
         if (index !== -1) {
             comments[index].name = name;
@@ -195,7 +186,6 @@ commentForm.addEventListener('submit', (e) => {
             comments[index].date = new Date().toISOString();
         }
     } else {
-        // Create
         const newComment = {
             id: Date.now().toString(),
             name: name,
@@ -212,7 +202,6 @@ commentForm.addEventListener('submit', (e) => {
     loadComments();
 });
 
-// Fungsi Delete
 window.deleteComment = (id) => {
     if (confirm('Apakah Anda ingin menghapus komentar ini?')) {
         let comments = JSON.parse(localStorage.getItem('bali_comments')) || [];
@@ -222,7 +211,6 @@ window.deleteComment = (id) => {
     }
 };
 
-// Fungsi Edit/ Update
 window.editComment = (id) => {
     const comments = JSON.parse(localStorage.getItem('bali_comments')) || [];
     const commentToEdit = comments.find(c => c.id === id);
@@ -238,11 +226,9 @@ window.editComment = (id) => {
 
 loadComments();
 
-// FUNGSI INI SUDAH DIPERBAIKI (Toggle Kuil)
 window.toggleDescription = function(element) {
     const description = element.querySelector('.kuil-description');
 
-    // Tutup semua deskripsi kuil yang saat ini terbuka, KECUALI yang baru saja diklik
     document.querySelectorAll('.kuil-description').forEach(desc => {
         if (desc !== description) {
             desc.style.display = 'none';
@@ -250,13 +236,11 @@ window.toggleDescription = function(element) {
         }
     });
 
-    // Toggle deskripsi kuil yang sedang diklik
     if (description.style.display === 'block') {
         // Jika sudah terbuka, tutup
         description.style.display = 'none';
         element.classList.remove('active'); 
     } else {
-        // Jika tertutup, buka
         description.style.display = 'block';
         element.classList.add('active'); 
     }
