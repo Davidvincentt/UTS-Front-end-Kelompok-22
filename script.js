@@ -86,3 +86,121 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showSection('home');
 });
+
+// Tambahkan kode ini ke bagian bawah file script.js Anda
+// (di dalam document.addEventListener('DOMContentLoaded', ... ))
+
+const commentForm = document.getElementById('comment-form');
+const commentsContainer = document.getElementById('comments-container');
+const submitButton = document.getElementById('submit-button');
+
+// Fungsi untuk memuat komentar dari localStorage
+function loadComments() {
+    const comments = JSON.parse(localStorage.getItem('bali_comments')) || [];
+    commentsContainer.innerHTML = '';
+    comments.forEach(comment => {
+        const commentElement = createCommentElement(comment);
+        commentsContainer.appendChild(commentElement);
+    });
+}
+
+// Fungsi untuk membuat elemen HTML komentar
+function createCommentElement(comment) {
+    const commentDiv = document.createElement('div');
+    commentDiv.classList.add('comment-item');
+    commentDiv.setAttribute('data-id', comment.id);
+
+    const formattedDate = new Date(comment.date).toLocaleString('id-ID', {
+        year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+    });
+
+    commentDiv.innerHTML = `
+        <strong>${comment.name}</strong> 
+        <span class="comment-date">(${formattedDate})</span>
+        <p>${comment.body}</p>
+        <div class="comment-actions">
+            <button onclick="editComment('${comment.id}')">Edit</button>
+            <button onclick="deleteComment('${comment.id}')">Hapus</button>
+        </div>
+    `;
+
+    return commentDiv;
+}
+
+// Fungsi section komentar
+commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('comment-name').value;
+    const body = document.getElementById('comment-body').value;
+    const commentId = document.getElementById('comment-id').value;
+
+    const comments = JSON.parse(localStorage.getItem('bali_comments')) || [];
+
+    if (commentId) {
+        // Update
+        const index = comments.findIndex(c => c.id === commentId);
+        if (index !== -1) {
+            comments[index].name = name;
+            comments[index].body = body;
+            comments[index].date = new Date().toISOString();
+        }
+    } else {
+        // Create
+        const newComment = {
+            id: Date.now().toString(),
+            name: name,
+            body: body,
+            date: new Date().toISOString()
+        };
+        comments.unshift(newComment); 
+    }
+
+    localStorage.setItem('bali_comments', JSON.stringify(comments));
+    commentForm.reset();
+    document.getElementById('comment-id').value = '';
+    submitButton.textContent = 'UPLOAD';
+    loadComments();
+});
+
+// Fungsi Delete
+window.deleteComment = (id) => {
+    if (confirm('Apakah Anda ingin menghapus komentar ini?')) {
+        let comments = JSON.parse(localStorage.getItem('bali_comments')) || [];
+        comments = comments.filter(comment => comment.id !== id);
+        localStorage.setItem('bali_comments', JSON.stringify(comments));
+        loadComments();
+    }
+};
+
+// Fungsi Edit/ Update
+window.editComment = (id) => {
+    const comments = JSON.parse(localStorage.getItem('bali_comments')) || [];
+    const commentToEdit = comments.find(c => c.id === id);
+
+    if (commentToEdit) {
+        document.getElementById('comment-name').value = commentToEdit.name;
+        document.getElementById('comment-body').value = commentToEdit.body;
+        document.getElementById('comment-id').value = commentToEdit.id;
+        submitButton.textContent = 'Edit Komentar';
+        document.getElementById('comment-form').scrollIntoView({ behavior: 'smooth' });
+    }
+};
+
+loadComments();
+
+window.toggleDescription = function(element) {
+    const description = element.querySelector('.kuil-description');
+
+    if (description.style.display === 'block') {
+        description.style.display = 'none';
+        element.classList.remove('active'); 
+    } else {
+        document.querySelectorAll('.kuil-description').forEach(desc => {
+            desc.style.display = 'none';
+            desc.parentElement.classList.remove('active');
+        });
+        description.style.display = 'block';
+        element.classList.add('active'); 
+    }
+}
