@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- Data Do's & Don'ts Sesajen (EXISTING) ---
     const sesajenData = [
         {
             type: 'do',
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             type: 'do',
             title: 'DO: Cari Tahu Jenis Sesajen',
-            description: 'Mengetahui jenis sesajen seperti **Canangsari** (paling sederhana, bunga warna-warni) dan **Gebogan** (persembahan hasil bumi tinggi) akan menambah apresiasi Anda terhadap budaya Bali.'
+            description: 'Mengetahui jenis sesajen seperti Canangsari (paling sederhana, bunga warna-warni) dan Gebogan (persembahan hasil bumi tinggi) akan menambah apresiasi Anda terhadap budaya Bali.'
         },
         {
             type: 'do',
@@ -32,6 +34,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    // --- Data Do's & Don'ts Kuil/Pura (NEW) ---
+    const templeData = [
+        {
+            type: 'do',
+            title: 'DO: Berpakaian Sopan dan Pantas',
+            description: 'Kenakan pakaian yang sopan yang menutupi bahu dan lutut Anda sebagai tanda penghormatan terhadap kesucian pura (kuil). Seringkali sarung dan selendang disediakan di pintu masuk.'
+        },
+        {
+            type: 'do',
+            title: 'DO: Jaga Ketenangan dan Keheningan',
+            description: 'Pertahankan sikap damai dan penuh hormat di dalam area pura. Hindari suara yang tidak perlu, tawa keras, atau perilaku yang mengganggu ketenangan spiritual.'
+        },
+        {
+            type: 'do',
+            title: 'DO: Ikuti Praktik Ritual (Jika Diizinkan)',
+            description: 'Jika Anda diizinkan berpartisipasi dalam ritual atau upacara, lakukan dengan hormat dan ikuti petunjuk dari pemangku (pendeta) atau umat lokal.'
+        },
+        {
+            type: 'do',
+            title: 'DO: Selalu Periksa Barang Bawaan Anda',
+            description: 'Saat mengunjungi kuil yang terdapat banyak hewan liar seperti monyet atau burung (misalnya Pura Uluwatu), selalu periksa kembali barang bawaan dan pegang erat agar tidak terlupakan atau diambil oleh hewan liar.'
+        },
+        {
+            type: 'dont',
+            title: 'DON\'T: Menyentuh Benda Suci',
+            description: 'Hindari menyentuh atau mengganggu sesajen, patung, atau benda suci lainnya di dalam kompleks pura. Benda-benda ini murni untuk tujuan spiritual.'
+        },
+        {
+            type: 'dont',
+            title: 'DON\'T: Menggunakan Flash Kamera',
+            description: 'Hormati kesucian pura dengan menahan diri menggunakan flash pada kamera Anda, karena dapat mengganggu persembahyangan dan merusak suasana suci.'
+        },
+        {
+            type: 'dont',
+            title: 'DON\'T: Mengganggu Upacara',
+            description: 'Jangan pernah mengganggu upacara atau ritual yang sedang berlangsung. Jaga jarak yang hormat, amati dengan tenang, dan jangan mengambil foto/video kecuali diizinkan.'
+        }
+    ];
+    
     const navLinks = document.querySelectorAll('.nav-link');
     const contentSections = document.querySelectorAll('.content-card');
 
@@ -64,7 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    function createSesajenItem(item) {
+    // Fungsi universal untuk membuat item grid
+    function createGridItem(item) {
         const itemDiv = document.createElement('div');
         itemDiv.classList.add('item', item.type); 
         
@@ -76,19 +118,26 @@ document.addEventListener('DOMContentLoaded', () => {
         return itemDiv;
     }
 
-    const gridContainer = document.querySelector('.grid-container');
-    if (gridContainer) {
+    // Memuat data Sesajen ke kontainer baru
+    const sesajenGridContainer = document.querySelector('.sesajen-grid-container');
+    if (sesajenGridContainer) {
         sesajenData.forEach(item => {
-            const itemElement = createSesajenItem(item);
-            gridContainer.appendChild(itemElement);
+            const itemElement = createGridItem(item);
+            sesajenGridContainer.appendChild(itemElement);
+        });
+    }
+
+    // Memuat data Kuil/Pura ke kontainer baru
+    const kuilGridContainer = document.querySelector('.kuil-grid-container');
+    if (kuilGridContainer) {
+        templeData.forEach(item => {
+            const itemElement = createGridItem(item);
+            kuilGridContainer.appendChild(itemElement);
         });
     }
 
     showSection('home');
 });
-
-// Tambahkan kode ini ke bagian bawah file script.js Anda
-// (di dalam document.addEventListener('DOMContentLoaded', ... ))
 
 const commentForm = document.getElementById('comment-form');
 const commentsContainer = document.getElementById('comments-container');
@@ -189,17 +238,25 @@ window.editComment = (id) => {
 
 loadComments();
 
+// FUNGSI INI SUDAH DIPERBAIKI (Toggle Kuil)
 window.toggleDescription = function(element) {
     const description = element.querySelector('.kuil-description');
 
+    // Tutup semua deskripsi kuil yang saat ini terbuka, KECUALI yang baru saja diklik
+    document.querySelectorAll('.kuil-description').forEach(desc => {
+        if (desc !== description) {
+            desc.style.display = 'none';
+            desc.parentElement.classList.remove('active');
+        }
+    });
+
+    // Toggle deskripsi kuil yang sedang diklik
     if (description.style.display === 'block') {
+        // Jika sudah terbuka, tutup
         description.style.display = 'none';
         element.classList.remove('active'); 
     } else {
-        document.querySelectorAll('.kuil-description').forEach(desc => {
-            desc.style.display = 'none';
-            desc.parentElement.classList.remove('active');
-        });
+        // Jika tertutup, buka
         description.style.display = 'block';
         element.classList.add('active'); 
     }
