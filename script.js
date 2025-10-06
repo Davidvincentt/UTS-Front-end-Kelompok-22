@@ -245,3 +245,110 @@ window.toggleDescription = function(element) {
         element.classList.add('active'); 
     }
 }
+
+
+const monyets = document.querySelectorAll('.monyet');
+const scoreDisplay = document.getElementById('score');
+const timeLeftDisplay = document.getElementById('time-left');
+const startButton = document.getElementById('start-button');
+const gameMessage = document.getElementById('game-message');
+const REGULAR_MONKEY_SRC = 'image/monyet.png';
+const SPECIAL_MONKEY_SRC = 'image/special_monyet.png';
+
+let lastHole;
+let timeUp = false;
+let score = 0;
+let gameTimerId;
+
+function randomTime(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+function randomMonyet(monyets) {
+    const idx = Math.floor(Math.random() * monyets.length);
+    const monyet = monyets[idx];
+    if (monyet === lastHole) {
+        return randomMonyet(monyets); 
+    }
+    lastHole = monyet;
+    return monyet;
+}
+
+function popMonyet() {
+    if (timeUp) return;
+
+    const time = randomTime(500, 1500);
+    const monyet = randomMonyet(monyets);
+    
+    const isSpecial = (Math.floor(Math.random() * 10) + 1) === 1; 
+
+    if (isSpecial) {
+        monyet.src = SPECIAL_MONKEY_SRC;
+        monyet.classList.add('special-monyet');
+    } else {
+        monyet.src = REGULAR_MONKEY_SRC;
+        monyet.classList.remove('special-monyet');
+    }
+    
+    monyet.classList.add('monyet-up');
+    setTimeout(() => {
+        monyet.classList.remove('monyet-up');
+        monyet.src = REGULAR_MONKEY_SRC;
+        monyet.classList.remove('special-monyet');
+        
+        popMonyet();
+    }, time);
+}
+
+function startGame() {
+    score = 0;
+    timeLeftDisplay.textContent = 15;
+    scoreDisplay.textContent = score;
+    timeUp = false;
+    startButton.disabled = true;
+    gameMessage.textContent = 'Game Sedang Berlangsung...';
+
+    let timeLeft = 15;
+    gameTimerId = setInterval(() => {
+        timeLeft--;
+        timeLeftDisplay.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(gameTimerId);
+            timeUp = true;
+            startButton.disabled = false;
+            gameMessage.textContent = `Waktu Habis! Skor Akhir Anda: ${score}`;
+        }
+    }, 1000);
+
+    popMonyet(); 
+}
+
+function whack(e) {
+    if (!e.isTrusted) return; 
+    
+    if (this.classList.contains('monyet-up')) {
+        let points = 1;
+        if (this.classList.contains('special-monyet')) {
+            points = 5; 
+            gameMessage.textContent = '🎉 BONUS! +5 Poin!';
+            setTimeout(() => gameMessage.textContent = 'Game Sedang Berlangsung...', 500);
+        }
+
+        score += points;
+        scoreDisplay.textContent = score;
+        this.classList.remove('monyet-up');
+        
+        this.src = REGULAR_MONKEY_SRC;
+        this.classList.remove('special-monyet');
+    }
+}
+
+// Event listener untuk setiap monyet
+monyets.forEach(monyet => monyet.addEventListener('click', whack));
+
+// Event listener tombol start
+if (startButton) {
+    startButton.addEventListener('click', startGame);
+}
+
