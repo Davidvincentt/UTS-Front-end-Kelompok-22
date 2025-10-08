@@ -19,6 +19,7 @@
                 <li><a href="#kuil" class="nav-link">Temple</a></li>
                 <li><a href="#komen" class="nav-link">Comment</a></li>
                 <li><a href="#game" class="nav-link">Game</a></li>
+            </ul>
         </nav>
         <div class="hero">
             <h1>Eksplorasi Etika: Panduan Perjalanan Bali yang Bermakna</h1>
@@ -28,7 +29,7 @@
 
     <main>
         <section id="home-section" class="content-card active">
-            <h2> Sejarah Pulau Dewata</h2>
+            <h2>Sejarah Pulau Dewata</h2>
             
             <p class="intro">
                 Bali, yang secara puitis dijuluki sebagai "Pulau Dewata" dan "Pulau Seribu Pura", memiliki tapestry sejarah yang terajut rapi dari pengaruh agama, politik kerajaan, hingga kolonialisme. Perjalanan Bali bukan sekadar tentang pariwisata modern, tetapi cerminan ketahanan luar biasa dari budaya Hindu-Dharma yang telah berakar kuat selama ribuan tahun. Keseimbangan kosmis dan spiritualitas menjadi inti dari setiap fase perkembangan pulau ini.
@@ -88,7 +89,7 @@
         </section>
 
         <section id="budaya-section" class="content-card">
-            <h2> Mengenal Sesajen dan Etika Dasar</h2>
+            <h2>Mengenal Sesajen dan Etika Dasar</h2>
             
             <p class="intro">
                 Untuk lebih memahami makna mendalam dari sesajen dalam kehidupan sehari-hari masyarakat Bali, mari kita simak penjelasan langsung dari sumbernya.
@@ -152,70 +153,21 @@
                 Bali memiliki ribuan pura (kuil) yang tersebar di seluruh pulau. Setiap pura memiliki sejarah dan keunikannya sendiri, menjadi saksi bisu perjalanan spiritual masyarakat Hindu Bali selama berabad-abad.
             </p>
 
+            <div class="filter-container" style="margin-bottom: 30px; display: flex; align-items: center; justify-content: flex-end;">
+                <label for="kuil-filter" style="margin-right: 15px; font-weight: bold; color: #013243; font-size: 1.1rem;">
+                    Urutkan Berdasarkan:
+                </label>
+                <select id="kuil-filter" style="padding: 10px 15px; border: 2px solid #ffb74d; border-radius: 5px; font-size: 1rem; background-color: white; cursor: pointer;">
+                    <option value="rating-desc">Rating Bintang (Tinggi)</option>
+                    <option value="rating-asc">Rating Bintang (Rendah)</option>
+                    <option value="name-asc">Nama (A-Z)</option>
+                    <option value="name-desc">Nama (Z-A)</option>
+                    <option value="age-desc">Usia/Sejarah (Tertua)</option>
+                    <option value="age-asc">Usia/Sejarah (Termuda)</option>
+                </select>
+            </div>
+
             <div class="kuil-grid">
-                <div class="kuil-item" onclick="toggleDescription(this)">
-                    <h4>Pura Besakih</h4>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Bali%2C_Pura_Besakih_6.jpg" alt="Foto Pura Besakih">
-                    <div class="kuil-description">
-                        <p>Pura Besakih, yang dikenal sebagai Pura Agung atau "Mother Temple", adalah kompleks pura terbesar dan tersuci di Bali. Pura ini terletak megah di lereng barat daya Gunung Agung, gunung tertinggi dan paling sakral di pulau ini. Sejarah pembangunan Besakih diperkirakan dimulai pada abad ke-8 Masehi, menjadikannya salah satu situs keagamaan tertua. Kompleks ini terdiri dari 23 pura terpisah yang saling berkaitan, dengan Pura Penataran Agung sebagai fokus utama yang didedikasikan untuk Dewa Trimurti (Siwa, Wisnu, Brahma). Perannya sangat sentral, berfungsi sebagai pusat kegiatan keagamaan Hindu Dharma Bali secara keseluruhan. Walaupun pernah rusak akibat gempa bumi dan hampir dihantam letusan Gunung Agung pada tahun 1963, struktur puranya berhasil diselamatkan dan direstori. Arsitekturnya yang berjenjang melambangkan alam semesta dan kosmos Bali. Hingga kini, Besakih menjadi tempat pelaksanaan upacara besar seperti Eka Dasa Rudra dan Tri Bhuwana. </p>
-                    </div>
-                </div>
-
-                <div class="kuil-item" onclick="toggleDescription(this)">
-                    <h4>Pura Tanah Lot</h4>
-                    <img src="https://kulkulbali.co/public/uploads/posts/skiCxFEFA98Vja1WH5a926XigVkqWW-metaVGFuYWgtTG90LUJhbGkuanBn-.jpg" alt="Foto Pura Tanah Lot">
-                    <div class="kuil-description">
-                        <p>Pura Tanah Lot adalah pura laut ikonik yang terletak di atas batu karang besar di tengah perairan laut Tabanan. Pura ini didirikan pada abad ke-16 Masehi oleh seorang pendeta pengembara dari Jawa bernama Dang Hyang Nirartha. Beliau memilih lokasi ini karena merasa tempat tersebut sangat suci dan sempurna untuk meditasi dan penyebaran ajaran Hindu Dharma. Pura Tanah Lot didedikasikan untuk pemujaan Dewa Laut dan merupakan bagian dari *Kayangan Jagat*, enam pura penting yang menjaga pulau Bali dari roh-roh jahat. Keunikan paling mencolok dari pura ini adalah lokasinya yang hanya dapat diakses melalui jembatan darat saat air laut sedang surut. Menurut legenda, ular laut suci yang berbisa menjaga pura dari gangguan atau serangan dari luar. Pura ini adalah salah satu destinasi paling terkenal di Bali, khususnya saat matahari terbenam (sunset) yang spektakuler. </p>
-                    </div>
-                </div>
-
-                <div class="kuil-item" onclick="toggleDescription(this)">
-                    <h4>Pura Uluwatu</h4>
-                    <img src="https://nativeindonesia.com/foto/2018/08/pura-uluwatu-bali.jpg" alt="Foto Pura Uluwatu">
-                    <div class="kuil-description">
-                        <p>Pura Uluwatu adalah pura tebing yang luar biasa, bertengger di puncak tebing karang setinggi sekitar 70 meter di atas permukaan Samudra Hindia. Pura ini terletak di ujung semenanjung Bukit Badung, Bali Selatan, menawarkan pemandangan laut yang dramatis. Meskipun ada dugaan pura kecil sudah ada sejak abad ke-10, pembangunan dan perbaikan besar dikaitkan dengan dua tokoh suci. Pendeta Empu Kuturan pada abad ke-11 dianggap berjasa dalam pembentukan pura ini, diikuti oleh Dang Hyang Nirartha pada abad ke-16. Nirartha diyakini mencapai *moksa* (penyatuan dengan Tuhan) di tempat ini. Nama 'Uluwatu' sendiri berasal dari kata "Ulu" yang berarti ujung atau kepala, dan "Watu" yang berarti batu atau karang, menggambarkan lokasinya secara harfiah. Pura ini juga merupakan bagian dari *Kayangan Jagat* yang berfungsi sebagai penyeimbang spiritual. Selain keindahan alamnya, Pura Uluwatu terkenal sebagai tempat pementasan Tari Kecak yang dilakukan saat matahari terbenam. </p>
-                    </div>
-                </div>
-
-                <div class="kuil-item" onclick="toggleDescription(this)">
-                    <h4>Pura Ulun Danu Bratan</h4>
-                    <img src="https://mediaim.expedia.com/destination/1/4ee1e2328ed998f9e0bbc32b69946e53.jpg" alt="Foto Pura Ulun Danu Bratan">
-                    <div class="kuil-description">
-                        <p>Pura Ulun Danu Bratan, atau sering disebut sebagai "pura terapung," terletak indah di tepi Danau Bratan, kawasan Bedugul, Bali tengah. Pura ini didirikan pada tahun 1633 Masehi oleh Raja Mengwi, I Gusti Agung Putu. Pembangunan pura ini bertujuan untuk memuja Dewi Danu, dewi air, danau, dan sungai, yang dianggap sebagai sumber utama kesuburan dan irigasi di Bali. Keberadaan danau ini sangat penting bagi sistem irigasi Subak yang merupakan warisan dunia UNESCO. Lokasi pura yang berada di atas air dan sering diselimuti kabut pagi menjadikannya salah satu ikon paling populer. Pura ini memiliki empat kompleks bangunan utama yang masing-masing memiliki fungsi pemujaan yang berbeda. Arsitektur pura ini memadukan unsur Bali dan Hindu, dengan ciri khas berupa meru (atap bertingkat) yang menakjubkan. Suhu sejuk di kawasan Bedugul menambah suasana tenang dan spiritual di sekitar kompleks pura ini. </p>
-                    </div>
-                </div>
-
-                <div class="kuil-item" onclick="toggleDescription(this)">
-                    <h4>Pura Tirta Empul</h4>
-                    <img src="https://torch.id/cdn/shop/articles/Artikel_160_-_Preview.webp?v=1710761089&width=1100" alt="Foto Pura Tirta Empul">
-                    <div class="kuil-description">
-                        <p>Pura Tirta Empul, yang berarti "Kuil Air Suci", adalah pura mata air yang terkenal di dekat Tampaksiring, Gianyar. Pura ini didirikan sekitar 962 Masehi pada masa kejayaan Dinasti Warmadewa, dengan Raja Sri Candrabhaya Singha Warmadewa sebagai tokoh penting. Situs ini terkenal karena kolam permandian sucinya (*petirtaan*) yang dialiri oleh mata air alami yang dianggap memiliki kekuatan penyucian. Menurut legenda Hindu Bali, mata air ini diciptakan oleh Dewa Indra untuk menyembuhkan pasukannya dari racun yang disebarkan oleh Raja Mayadenawa, yang tidak percaya pada Tuhan. Struktur pura terbagi menjadi tiga halaman: Jaba Pura (halaman luar), Jaba Tengah (halaman tengah dengan kolam suci), dan Jeroan (halaman dalam untuk sembahyang). Hingga hari ini, umat Hindu dari seluruh dunia datang untuk melakukan ritual melukat (pembersihan diri) di kolam suci yang mengalir dari pancuran-pancuran air. Keaslian sejarah dan nilai spiritualnya menjadikan Tirta Empul situs yang sangat dihormati. </p>
-                    </div>
-                </div>
-
-                <div class="kuil-item" onclick="toggleDescription(this)">
-                    <h4>Pura Goa Gajah</h4>
-                    <img src="https://www.baligoldentour.com/images/bali-interest-place/goa-gajah-temple-bali-golden-tour.jpg" alt="Foto Pura Goa Gajah">
-                    <div class="kuil-description">
-                        <p>Pura Goa Gajah, atau "Gua Gajah", adalah situs arkeologi dan pura yang terletak di desa Bedulu, dekat Ubud. Pura ini diperkirakan dibangun pada abad ke-9 Masehi, menjadikannya salah satu situs keagamaan tertua yang mendahului era Majapahit di Bali. Situs ini sangat unik karena memadukan elemen arsitektur Hindu Siwa dan Buddha, yang mencerminkan masa toleransi beragama di Bali kuno. Daya tarik utamanya adalah gua buatan yang pintu masuknya diukir menyerupai wajah raksasa Boma atau Kala. Mulut gua ini dipercaya sebagai jalan masuk menuju tempat meditasi dan pemujaan. Di dalam kompleks pura juga ditemukan kolam permandian suci dengan patung-patung bidadari yang memegang wadah air, yang baru ditemukan pada tahun 1954. Pura Goa Gajah dulunya berfungsi sebagai tempat meditasi bagi para biksu Buddha dan pendeta Hindu. Situs ini diyakini oleh masyarakat lokal memiliki energi spiritual yang kuat dan sering dikunjungi untuk memohon keselamatan. </p>
-                    </div>
-                </div>
-
-                <div class="kuil-item" onclick="toggleDescription(this)">
-                    <h4>Pura Lempuyang</h4>
-                    <img src="https://www.rentalmobilbali.net/wp-content/uploads/2023/04/Pura-Lempuyang-Feature-Image.jpg" alt="Foto Pura Lempuyang">
-                    <div class="kuil-description">
-                        <p>Pura Lempuyang Luhur adalah salah satu dari sembilan *Sad Kahyangan Jagat* (sembilan pura penyeimbang Bali) yang terletak di puncak Gunung Lempuyang di Karangasem. Pura ini merupakan salah satu pura tertua di Bali, dengan sejarah yang konon berawal sejak abad ke-8 Masehi, bahkan sebelum berdirinya Pura Besakih. Kompleks pura ini dibagi menjadi tujuh tingkatan yang tersebar di sepanjang lereng gunung, dengan Pura Lempuyang Luhur yang paling suci berada di puncaknya. Untuk mencapai pura teratas, pengunjung harus menaiki ribuan anak tangga, yang melambangkan perjalanan spiritual menuju kesucian. Bagian yang paling terkenal adalah Pura Penataran Agung Lempuyang, yang gerbangnya, yang dikenal sebagai "Gates of Heaven", menawarkan pemandangan Gunung Agung yang menakjubkan. Pura ini didedikasikan untuk pemujaan Dewa Iswara, salah satu manifestasi Tuhan dalam konsep Hindu Dharma. Nilai spiritual dan sejarahnya menjadikannya tempat ziarah yang sangat penting. </p>
-                    </div>
-                </div>
-
-                <div class="kuil-item" onclick="toggleDescription(this)">
-                    <h4>Pura Taman Ayun</h4>
-                    <img src="https://www.rentalmobilbali.net/wp-content/uploads/2021/11/Pura-Taman-Ayun-Mengwi-Bali-Twitter.jpg" alt="Foto Pura Taman Ayun">
-                    <div class="kuil-description">
-                        <p>Pura Taman Ayun, yang secara harfiah berarti "Taman yang Indah" atau "Taman Air", adalah pura kerajaan yang terletak di Mengwi, Kabupaten Badung. Pura ini dibangun pada tahun 1634 Masehi oleh Raja Mengwi, I Gusti Agung Putu, dan merupakan pura keluarga kerajaan Mengwi (*Pura Kawitan*). Ciri khas utamanya adalah arsitektur yang dikelilingi oleh kolam besar yang berfungsi seperti parit, menciptakan kesan pura yang mengapung di atas air. Pura ini memiliki tiga halaman yang melambangkan tingkatan kosmos Hindu. Pura Taman Ayun berfungsi sebagai tempat pemujaan roh-roh leluhur kerajaan Mengwi. Pada tahun 2012, Pura Taman Ayun ditetapkan oleh UNESCO sebagai bagian dari situs warisan budaya dunia (Subak), karena perannya yang terkait erat dengan sistem irigasi pertanian di Bali. Keindahan taman, kolam, dan struktur *meru* bertingkatnya menjadikannya salah satu contoh terbaik dari arsitektur pura kerajaan Bali. </p>
-                    </div>
-                </div>
             </div>
 
             <div class="tip-box">
@@ -243,7 +195,7 @@
             <div class="comment-list-container">
                 <h3>Komentar Pengunjung</h3>
                 <div id="comments-container">
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -251,13 +203,13 @@
             <h2> Game: Pukul Monyet Bali</h2>
             
             <p class="intro">
-                Hati-hati dengan monyet-monyet nakal di pura! Coba pukul monyet yang muncul dari lubang. Kecepatan dan akurasi Anda diuji dalam waktu 15 detik!
+                Hati-hati dengan monyet-monyet nakal di pura! Coba pukul monyet yang muncul dari lubang. Kecepatan dan akurasi Anda diuji dalam waktu 30 detik!
             </p>
 
             <div id="whack-game-container">
                 <div id="score-board">
                     <p style="font-size: 1.2rem; margin-bottom: 10px;">
-                        Skor: <span id="score">0</span> | Waktu Tersisa: <span id="time-left">15</span>
+                        Skor: <span id="score">0</span> | Waktu Tersisa: <span id="time-left">30</span>
                     </p>
                 </div>
 
@@ -287,6 +239,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
-
